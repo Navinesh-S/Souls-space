@@ -1,152 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>🐉 SOULS SPACE 🐉</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 SOULS SPACE | Finality 🐉</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Uncial+Antiqua&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      font-family: 'Uncial Antiqua', Arial, sans-serif;
-      color: white;
-    }
+<style>
+:root {
+  --gold: #ffcc00;
+  --deep-orange: #ff8c00;
+}
 
-    body {
-      background-image: url('https://i.pinimg.com/736x/a3/1b/6f/a31b6fc562dc7797a2ff52c3092b6394.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      flex-direction: column;
-    }
+body {
+  height: 100vh;
+  font-family: 'Cinzel', serif;
+  color: white;
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-    }
+  /* 🔥 FULL BACKGROUND FIT (100%) */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('https://i.pinimg.com/736x/a3/1b/6f/a31b6fc562dc7797a2ff52c3092b6394.jpg') no-repeat;
 
-    /* Heading */
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 80px;
-      margin: 0 0 20px 0;
-    }
+  background-size: 100% 100%;
+  background-position: center;
 
-    /* Motivational points */
-    .motivation h3 {
-      font-family: 'Uncial Antiqua', cursive;
-      font-size: 28px;
-      margin: 10px 0;
-      line-height: 1.6;
-      color: #ffeaa7;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    /* Quote box */
-    .quote-box {
-      background: rgba(255, 255, 255, 0.85);
-      color: #222;
-      padding: 90px; /* bigger than before */
-      border-radius: 20px;
-      width: 900px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
-      margin-bottom: 50px;
-      font-family: 'Cinzel', serif;
-    }
+  overflow: hidden;
+}
 
-    #quote {
-      font-size: 36px;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+.container {
+  max-width: 800px;
+  width: 90%;
+}
 
-    button {
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      background-color: orange;
-      cursor: pointer;
-    }
+h1 {
+  font-size: clamp(40px, 8vw, 90px);
+  text-shadow: 0 0 20px var(--deep-orange);
+  letter-spacing: 8px;
+}
 
-    button:hover {
-      background-color: gold;
-    }
+.motivation h3 {
+  font-family: 'Uncial Antiqua', cursive;
+  color: var(--gold);
+  margin: 20px 0 30px;
+  opacity: 0.9;
+}
 
-    /* Responsive */
-    @media screen and (max-width: 1200px) {
-      .quote-box { width: 80%; padding: 70px; }
-      #quote { font-size: 30px; }
-      .motivation h3 { font-size: 24px; }
-    }
+.quote-box {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-    @media screen and (max-width: 700px) {
-      h1 { font-size: 50px; margin-bottom: 20px; }
-      .quote-box { width: 90%; padding: 35px; }
-      #quote { font-size: 24px; }
-      .motivation h3 { font-size: 20px; }
-      button { font-size: 16px; padding: 10px 20px; }
-    }
-  </style>
+  padding: clamp(30px, 6vw, 60px);
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.2);
+}
+
+#quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 4vw, 30px);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  min-height: 100px;
+
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  transition: all 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+button {
+  padding: 14px 35px;
+  border: none;
+  border-radius: 50px;
+
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ffcc00, #ff8c00);
+  color: #000;
+
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #ff8c00;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.8s;
+}
+
+.final-glow {
+  text-shadow: 0 0 20px rgba(255,255,255,0.9);
+  font-weight: bold;
+}
+
+.ready-line {
+  display: block;
+  margin-top: 15px;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+</style>
 </head>
 
 <body>
 
-  <h1> SOULS SPACE </h1>
+<div class="container">
+  <h1>SOUL SPACE</h1>
 
-  <!-- Motivational points -->
   <div class="motivation">
-    <h3> Believe in yourself, even when the world doubts you.</h3>
+    <h3>Believe In Yourself, Even When The World Doubts You</h3>
   </div>
 
-  <!-- Quote Box -->
   <div class="quote-box">
-    <p id="quote">Click the button to awaken your inner dragon ...</p>
-    <button id="nextBtn" onclick="newQuote()">Click Here</button>
+    <p id="quote">The dragon awakens... Click to begin your ascent.</p>
+    <button id="nextBtn" onclick="updateQuote()">Ignite the Fire</button>
   </div>
+</div>
 
-  <script>
-    const quotes = [
-      "Your mind is a dragon - train it with care, and it will carry you to places fear never could.",
-      "Your mind is a dragon-train it with care, and it will carry you to places fear never could.",
-      "Feed your inner dragon with hope, discipline, and courage-it will guard you through life's hardest days.",
-      "A strong mind is like a dragon: calm when needed, powerful when it matters.",
-      "Take care of your thoughts, because your dragon grows from what you give it.",
-      "You already have a dragon inside-you believe in it, and it will help you rise every time you fall.",
-      "Healing is not weakness-it's your dragon learning to fly higher after every storm.",
-      "Your comeback is your dragon spreading its wings for the first time.",
-      "The fire within you is not meant to harm-it's meant to light your path forward.",
-      "A peaceful mind doesn't lack power-it's a dragon that knows when to rest and when to soar.",
-      "Every small step you take strengthens your dragon for the journey ahead."
-    ];
+<script>
+const quotes = [
+  "Your mind is a dragon - train it with care, and it will carry you to places fear never could.",
+  "A strong mind is like a dragon: calm when needed, powerful when it matters.",
+  "You already have a dragon inside - believe in it, and it will help you rise.",
+  "The fire within you is not meant to harm - it's meant to light your path forward.",
+  "The dragon has fully awakened. Your spirit is now tempered for the world."
+];
 
-    let currentIndex = 0;
+let currentIndex = 0;
 
-    function newQuote() {
-      if(currentIndex < quotes.length) {
-        document.getElementById("quote").innerText = quotes[currentIndex];
-        currentIndex++;
-        // Change button text after first click
-        document.getElementById("nextBtn").innerText = "Next Quote";
-      }
-      if(currentIndex === quotes.length) {
-        document.getElementById("nextBtn").style.display = 'none';
-      }
+function updateQuote() {
+  if (currentIndex >= quotes.length) return;
+
+  const quote = document.getElementById("quote");
+  const btn = document.getElementById("nextBtn");
+
+  quote.classList.add("fade-out");
+
+  setTimeout(() => {
+    quote.innerHTML = quotes[currentIndex];
+
+    if (currentIndex === quotes.length - 1) {
+      btn.classList.add("hidden");
+      quote.classList.add("final-glow");
+
+      setTimeout(() => {
+        quote.innerHTML += `<span class="ready-line">You are ready 🔥</span>`;
+      }, 1200);
+    } else {
+      btn.innerText = "Seek More Wisdom";
     }
-  </script>
+
+    currentIndex++;
+    quote.classList.remove("fade-out");
+  }, 500);
+}
+</script>
 
 </body>
 </html>
